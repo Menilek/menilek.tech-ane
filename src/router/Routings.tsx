@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { routes } from "./routes";
 
@@ -8,9 +8,8 @@ const Routings = () => {
     <Suspense>
       <Routes>
         {routes.map((routeProps) => (
-          <Route {...routeProps} key={routeProps.path as string} />
+          <Route path={routeProps.path} element={routeProps.element} key={routeProps.path as string} />
         ))}
-        <Route path="*" element={ <Navigate to="/ane" /> } />
       </Routes>
     </Suspense>
   );
